@@ -19,6 +19,9 @@ class ItemBase(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
+    def __str__(self):
+        return self.subject
+
 ########################
 class Course(ItemBase):
     class Meta:
@@ -32,3 +35,8 @@ class Lesson(ItemBase):
         # db_table = 'lesson'
     content = models.TextField(null=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
+    tags = models.ManyToManyField('Tag', blank=True, null=True)
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique= True)
+    def __str__(self):
+        return self.name
