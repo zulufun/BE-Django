@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'courses.apps.CoursesConfig'
+    'courses.apps.CoursesConfig',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +125,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_ROOT = '%s/courses/static' % BASE_DIR
+CKEDITOR_UPLOAD_PATH = 'lesson/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
